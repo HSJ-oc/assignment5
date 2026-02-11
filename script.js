@@ -113,8 +113,9 @@ function editWord(index) {
 
 function deleteWord(index) {
     if (confirm('Are you sure you want to delete this word?')) {
-        saveWordBank();
-        displayWordBank();
+        wordBank.splice(index, 1);   // Remove the word
+        saveWordBank();              // Save updated array
+        displayWordBank();           // Refresh UI
     }
 }
 
