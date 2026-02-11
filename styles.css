@@ -108,6 +108,15 @@ body {
     margin-bottom: 30px;
 }
 
+.btn-warning {
+    background: #ffc107;
+    color: #333;
+}
+
+.btn-warning:hover {
+    background: #e0a800;
+}
+
 .player-setup h2 {
     margin-bottom: 20px;
     color: #333;

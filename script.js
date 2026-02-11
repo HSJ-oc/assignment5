@@ -283,6 +283,32 @@ function checkGameStatus() {
     }
 }
 
+function useHint() {
+    if (!gameState.gameActive) return;
+
+    // Get letters not yet guessed
+    const hiddenLetters = [...gameState.currentWord].filter(letter =>
+        !gameState.guessedLetters.includes(letter)
+    );
+
+    if (hiddenLetters.length === 0) return;
+
+    // Pick random hidden letter
+    const randomLetter = hiddenLetters[Math.floor(Math.random() * hiddenLetters.length)];
+
+    // Add it to guessed letters
+    gameState.guessedLetters.push(randomLetter);
+
+    // Cost 1 life
+    gameState.wrongGuesses++;
+
+    updateWordDisplay();
+    updateWrongLetters();
+    updateLives();
+    updateHangman();
+    checkGameStatus();
+}
+
 function gameWon() {
     gameState.gameActive = false;
     
